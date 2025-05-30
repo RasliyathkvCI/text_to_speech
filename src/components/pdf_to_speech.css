@@ -1,0 +1,46 @@
+.pdf-viewer {
+  text-align: center;
+  padding: 20px;
+}
+
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
+.speak-controls {
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.speak-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.stop-btn {
+  background-color: #dc3545;
+  margin-top: 10px;
+  color: white;
+}
