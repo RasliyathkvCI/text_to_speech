@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
 import "./pdf_to_speech.css";
@@ -24,7 +23,8 @@ export default function PdfViewer() {
     const fileReader = new FileReader();
     fileReader.onload = async function () {
       const typedArray = new Uint8Array(this.result);
-      const loadedPdf = await pdfjsLib.getDocument({ data: typedArray }).promise;
+      const loadedPdf = await pdfjsLib.getDocument({ data: typedArray })
+        .promise;
       setPdf(loadedPdf);
       setNumPages(loadedPdf.numPages);
       setCurrentPage(1); // start with page 1
@@ -77,9 +77,18 @@ export default function PdfViewer() {
 
   return (
     <div className="pdf-viewer">
-      <h1 className="title">📄 PDF Page-by-Page with Speech</h1>
+      <h1 className="title">📄 Web Speech API - pdf content to Speech</h1>
 
-      <input type="file" accept="application/pdf" onChange={handleFileUpload} />
+      <label htmlFor="pdf-upload-1" className="formal-upload-label">
+        Select PDF File
+      </label>
+      <input
+        id="pdf-upload-1"
+        type="file"
+        accept="application/pdf"
+        onChange={handleFileUpload}
+        style={{ display: "none" }}
+      />
 
       {pdf && (
         <>
@@ -88,7 +97,10 @@ export default function PdfViewer() {
           </div>
 
           <div className="controls">
-            <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
+            <button
+              onClick={() => goToPage(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
               ◀️ Previous
             </button>
 
@@ -96,13 +108,20 @@ export default function PdfViewer() {
               Page {currentPage} of {numPages}
             </span>
 
-            <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === numPages}>
+            <button
+              onClick={() => goToPage(currentPage + 1)}
+              disabled={currentPage === numPages}
+            >
               Next ▶️
             </button>
           </div>
 
           <div className="speak-controls">
-            <button className="speak-btn" onClick={speakText} disabled={isSpeaking}>
+            <button
+              className="speak-btn"
+              onClick={speakText}
+              disabled={isSpeaking}
+            >
               🔊 Speak This Page
             </button>
 

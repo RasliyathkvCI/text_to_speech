@@ -5,6 +5,7 @@ import "./App.css";
 import With_react_speech_kit from "./components/with_react_speech_kit";
 import With_web_speech_API from "./components/with_web_speech_API";
 import PdfToSpeech from "./components/PdfToSpeech";
+import PdfViewerWithSpeechKit from "./components/PdfViewerWithSpeechKit";
 
 function App() {
   const [selectedVoice, setSelectedVoice] = useState(null);
@@ -30,6 +31,7 @@ function App() {
       )}
        <h2 className="title">Pdf Text To Speech Converter Using React Js</h2>
        <PdfToSpeech />
+       <PdfViewerWithSpeechKit />
     </div>
   );
 }
